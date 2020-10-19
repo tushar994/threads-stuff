@@ -82,5 +82,85 @@ There is one mutex for each stage and each performer (for performers who play 'v
 
 - ` if s joins an instrumentalist` : if this happens, then the thread coresponding to a singer exits, and the respective musician thread waits an extra two seconds, prints statements for both the singer and the instrumentalist, and then makes threads for both the instrumentalist and the singer to get tshirts.
 
+## pseudo coode for the threads that execute for 'p' or 'g'
 
+```shell
+int okay = semaphore time wait (electric or acoutsic)
 
+mutex_lock()
+
+if(okay==-1){
+    if(common_var==0){
+        common_var=-1;
+        exit apporopriately without any statement inpatience statement
+    }
+    else if(common_var==1){
+        exit apporopriately without any statement inpatience statement
+    }
+    else if(common_var==-1){
+        exit apporopriately with an inpatience statement
+    }
+}
+else{
+    if(common_var==0){
+        common_var=1;
+    }
+    else if(common_var==-1){
+        common_var=1;
+    }
+    else if(common_var==1){
+        exit thread apporopriately
+    }
+}
+mutex_unlock()
+
+perform
+
+semaphore time unlock (electric or acoutsic)
+```
+
+## pseudo coode for the threads that execute for 's'
+
+```shell
+int okay = semaphore time wait (electric or acoutsic or Sm)
+
+mutex_lock()
+if(okay==-1){
+    if(common_var==1){
+        exit appropriately
+    }
+    else if(common_var==0){
+        common_var=-1;
+        exit appropriately
+    }
+    else if(common_var==-1){
+        common_var=-2;
+        exit appropriately
+    }
+    else if(common_var==-2){
+        common_var=-3;
+        exit with impatience
+    }
+    
+}
+else{
+    if(common_var==0){
+        common_var=1;
+    }
+    else if(common_var==1){
+        exit the thing appropriately
+    }
+    else{
+        common_var=1;
+    }
+}
+mutex_unlock()
+
+stage_mutex_lock()
+edit stage accordingly
+stage_mutex_unlock()
+
+perform
+
+semaphor_mutex_unlock
+```
