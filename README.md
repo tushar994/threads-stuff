@@ -76,11 +76,11 @@ There is one mutex for each stage and each performer (for performers who play 'v
 ## general logic for each kind of musician
 - `'v' or 'b' : ` They have one thread that uses a semaphore to wait until either they impatiently leave or whether they get a free spot. They put their names in the respective stage they get. They sleep for their performance time. If a singer joins them (they can check for this condition), the function that implements them will print the exit statements of the singer and the instrumentalist and will create threads that execute the collecting of tshirts.
 
-- `'p' or 'g' : ` They create two threads that wait for either acoustic or electric (depending on the thread). If both the threads leave impatiently then they print thta they left impatiently (printed only once in total). If one manages to get a spot, the other threads exits and hte threads that got the spot performs, and looks ttoo see if a singer joined.
+- `'p' or 'g' : ` They create two threads that wait for either acoustic or electric (depending on the thread). If both the threads leave impatiently then they print that they left impatiently (printed only once in total). If one manages to get a spot, the other threads exits and the threads that got the spot performs, and looks to see if a singer joined.
 
-- `'s' : ` They create three threads that wait for either a free acoustic or electric stage or for a musician to join. If any one gets in, the other two leave. if all three dont get it, then they print that they left impatiently (in total only printed once). They put their details into the respective concert they get and then after erforming they g get tshirts.
+- `'s' : ` They create three threads that wait for either a free acoustic or electric stage or for a musician to join. If any one gets in, the other two leave. if all three dont get it, then they print that they left impatiently (in total only printed once). They put their details into the respective concert they get and then after performing they get tshirts.
 
-- ` if s joins an instrumentalist` : if this happens, then the thread cooresponding to a singer exits, and the respective musician thread waits an extra two seconds, prints statements for both teh singer and the instrumentalist, and then makes threads for both the instrumentalist and the singer to get tshirts.
+- ` if s joins an instrumentalist` : if this happens, then the thread coresponding to a singer exits, and the respective musician thread waits an extra two seconds, prints statements for both the singer and the instrumentalist, and then makes threads for both the instrumentalist and the singer to get tshirts.
 
 
 
