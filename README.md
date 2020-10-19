@@ -82,7 +82,7 @@ There is one mutex for each stage and each performer (for performers who play 'v
 
 - ` if s joins an instrumentalist` : if this happens, then the thread coresponding to a singer exits, and the respective musician thread waits an extra two seconds, prints statements for both the singer and the instrumentalist, and then makes threads for both the instrumentalist and the singer to get tshirts.
 
-## pseudo coode for the threads that execute for 'p' or 'g'
+## pseudo code for the threads that execute for 'p' or 'g'
 
 ```shell
 int okay = semaphore time wait (electric or acoutsic)
@@ -119,7 +119,7 @@ perform
 semaphore time unlock (electric or acoutsic)
 ```
 
-## pseudo coode for the threads that execute for 's'
+## pseudo code for the threads that execute for 's'
 
 ```shell
 int okay = semaphore time wait (electric or acoutsic or Sm)
