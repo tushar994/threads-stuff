@@ -54,3 +54,33 @@ $ ./a.out
 - We use n+m+1 mutexs. 
 - In the code, i have used a linked list to store the companies and the zones with their mutexs. The start of the linked list is a dummy, with an uninitialised and unused mutex.
 
+
+# Q3
+
+## RUNNING
+to run
+```shell
+$ gcc -std=gnu99 q3.c -lpthread -lrt 
+$ ./a.out
+```
+## Semaphores used
+There are 4 semaphores used. They corespond to 
+- Number of acoustic stages free
+- Number of electric stages free
+- Number of coordinators free
+- Number of instrumentalists playing without a singer
+
+## Mutexs used
+There is one mutex for each stage and each performer (for performers who play 'v' or 'b' these mutexs are not initialised or used.)
+
+## general logic for each kind of musician
+- `'v' or 'b' : ` They have one thread that uses a semaphore to wait until either they impatiently leave or whether they get a free spot. They put their names in the respective stage they get. They sleep for their performance time. If a singer joins them (they can check for this condition), the function that implements them will print the exit statements of the singer and the instrumentalist and will create threads that execute the collecting of tshirts.
+
+- `'p' or 'g' : ` They create two threads that wait for either acoustic or electric (depending on the thread). If both the threads leave impatiently then they print thta they left impatiently (printed only once in total). If one manages to get a spot, the other threads exits and hte threads that got the spot performs, and looks ttoo see if a singer joined.
+
+- `'s' : ` They create three threads that wait for either a free acoustic or electric stage or for a musician to join. If any one gets in, the other two leave. if all three dont get it, then they print that they left impatiently (in total only printed once). They put their details into the respective concert they get and then after erforming they g get tshirts.
+
+- ` if s joins an instrumentalist` : if this happens, then the thread cooresponding to a singer exits, and the respective musician thread waits an extra two seconds, prints statements for both teh singer and the instrumentalist, and then makes threads for both the instrumentalist and the singer to get tshirts.
+
+
+
