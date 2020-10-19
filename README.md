@@ -15,7 +15,7 @@ $ ./a.out
 - This is a simple mergesort, that does selection sort if the number of elements in the sub-problem is less than 5.
 
 ## mergesort with processes
-- This is mergesort implementated such that for every subproblem there is a subprocess that solves it. The process that calls the two subprocesses waits until bot the subprocesses end, and continues to do what it's supposed to do.
+- This is mergesort implementated such that for every subproblem there is a subprocess that solves it. The process that calls the two subprocesses waits until both the subprocesses end, and continues to do what it's supposed to do.
 - if the number of elements in a subprocess is less than 5, then it does selection sort.
 - INITIALLY THE the subprocesses communicated with each other through pipes. After that I changed it and used shared memory. Just wanted to flex.
 
