@@ -25,7 +25,7 @@ $ ./a.out
 - if the number of elements in a subprocess is less than 5, then it does selection sort.
 - INITIALLY THE the subprocesses communicated with each other through pipes. After that I changed it and used shared memory. Just wanted to flex.
 
-## compairing times
+## comparing times
 We see that the threaded mergesort and the process mergesort take much more time than the normal mergesort.
 This is because threaded mergesort will create ALOT of threads, and most of those threads will do every little work (like sort 4 numbers)
 This is because process mergesort will create ALOT of processes, and most of those threads will do every little work (like sort 4 numbers)
