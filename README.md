@@ -1,5 +1,7 @@
-# Q1
+# thread_stuff
 
+
+#Q1
 
 ## RUNNING
 to run
@@ -30,4 +32,21 @@ This is because process mergesort will create ALOT of processes, and most of tho
 
 for example, if there are 10,000 integers, then there will be two processes(or threads) that sort approx 5,000 integers. There will be approx 2500 processes(threads) that so selection sort on 4 integers. The total number of processes will be approx ![equation]( 2^(log2(10000) ) )
 
+#Q2
+
+## RUNNING
+to run
+```shell
+$ gcc -std=gnu99 q2.c -lpthread -lrt 
+$ ./a.out
+```
+
+## ASSUMPTIONS
+- Students reach the gate in between 0 and 5 seconds (a random integer bbetween them).
+
+
+## function breakdown
+- `pharma_zone :` This is the function that is the thread for all pharmaceutical companies. While the number of students who aren't done for the day is more than zero, it will producea random number of batches (1-5) where each batch can have (10-20) vaccines. It will take a (2-5) seconds to do this.
+- `stud_func : ` This is the function that represents a student. It waits for the student to arrive (sleeps for (1-5)). then the student looks for a slot in a vaccination zone. He leaves when he gets anti-bodies or when he execeedes 3 tries.
+- `zone_func : ` This is the function the represents the zone. It looks for vaccine when it has no vaccines. If it has vaccines, it gives slots and waits for either the total number of slots to be filled or the number of waiting students to become zero (if it has already given atleast one slot). It then waits for it's students to get vaccinated and then gets onto the next slot allocation. If the total number of vaccines is zero, it looks for more vaccines from a zone.
 
